@@ -22,7 +22,8 @@ import 'package:shop_app/features/home/presentation/manager/category_manager/cat
 import 'package:shop_app/features/home/presentation/manager/fav_screen_manager/fav_cubit.dart';
 import 'package:shop_app/features/home/presentation/manager/nav_bar_manager/navigation_bar_cubit.dart';
 import 'package:shop_app/features/login/data/local/data_sources/cache_data.dart';
-import 'package:shop_app/features/login/presentation/manager/login_cubit.dart';
+import 'package:shop_app/features/login/presentation/manager/login_manager/login_cubit.dart';
+import 'package:shop_app/features/login/presentation/manager/register_manager/register_cubit.dart';
 import 'package:shop_app/features/login/presentation/pages/login_page.dart';
 
 part 'home_state.dart';
@@ -159,6 +160,7 @@ class HomeCubit extends Cubit<HomeState> {
        getIt.resetLazySingleton<NavigationBarCubit>();
        getIt.resetLazySingleton<FavCubit>();
        getIt.resetLazySingleton<CategoryCubit>();
+       getIt.resetLazySingleton<RegisterCubit>();
        Navigator.pushReplacement(
            context,
            MaterialPageRoute(

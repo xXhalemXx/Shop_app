@@ -7,7 +7,7 @@ import 'package:shop_app/features/home/presentation/manager/home_screen_manager/
 import 'package:shop_app/features/home/presentation/manager/nav_bar_manager/navigation_bar_cubit.dart';
 import 'package:shop_app/features/home/presentation/pages/main_home_page.dart';
 import 'package:shop_app/features/login/data/local/data_sources/cache_data.dart';
-import 'package:shop_app/features/login/presentation/manager/login_cubit.dart';
+import 'package:shop_app/features/login/presentation/manager/login_manager/login_cubit.dart';
 import 'package:shop_app/features/login/presentation/pages/login_page.dart';
 import 'package:shop_app/features/login/presentation/pages/onboarding_screen.dart';
 

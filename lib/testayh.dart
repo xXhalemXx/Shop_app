@@ -4,17 +4,15 @@ import 'package:shop_app/features/home/data/models/category_model.dart';
 import 'package:shop_app/features/home/data/models/fav_models/add_or_delete_body.dart';
 import 'package:shop_app/features/home/data/models/fav_models/favorites_model.dart';
 import 'package:shop_app/features/home/data/models/logout_model.dart';
+import 'package:shop_app/features/login/data/remote/data_sources/web_services.dart';
+import 'package:shop_app/features/login/data/remote/models/register_model.dart';
+import 'package:shop_app/features/login/data/remote/models/request_model/register_body_model.dart';
 
 main() async {
-  HomeWebServices homeWebServices = HomeWebServices(Dio());
+  LoginWebServices loginWebServices = LoginWebServices(Dio());
 
   try {
-    LogoutModel logoutModel = await homeWebServices.logout(
-        'application/json',
-        'ar',
-        'eSkiu3csRWMuv0ZFrVi9J7hox0gURbKEOOX8xsilNrHyeROxfetWQ6WPdi6EeNy5ePAzXl');
-    print(logoutModel.status);
-    print(logoutModel.message);
+
   } catch (e) {
     print(e);
   }

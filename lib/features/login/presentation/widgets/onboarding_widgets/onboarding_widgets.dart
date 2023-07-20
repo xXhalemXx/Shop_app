@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/core/injection/injection.dart';
 import 'package:shop_app/core/styling/colors.dart';
 import 'package:shop_app/features/login/data/local/data_sources/cache_data.dart';
-import 'package:shop_app/features/login/presentation/manager/login_cubit.dart';
+import 'package:shop_app/features/login/presentation/manager/login_manager/login_cubit.dart';
 import 'package:shop_app/features/login/presentation/pages/login_page.dart';
 import 'package:shop_app/features/login/presentation/pages/onboarding_screen.dart';
 import 'package:shop_app/features/login/presentation/widgets/onboarding_widgets/onboarding_model.dart';

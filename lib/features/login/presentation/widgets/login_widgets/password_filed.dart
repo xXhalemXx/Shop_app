@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/core/common_components/default_components.dart';
 import 'package:shop_app/core/injection/injection.dart';
-import 'package:shop_app/features/login/presentation/manager/login_cubit.dart';
-import 'package:shop_app/features/login/presentation/manager/login_states.dart';
+import 'package:shop_app/features/login/presentation/manager/login_manager/login_cubit.dart';
+import 'package:shop_app/features/login/presentation/manager/login_manager/login_states.dart';
 
 Widget passwordFiled(TextEditingController passwordController) {
   return BlocBuilder<LoginCubit, LoginStates>(builder: (context, states) {

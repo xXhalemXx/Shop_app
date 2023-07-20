@@ -18,13 +18,17 @@ import 'package:shop_app/features/login/data/remote/data_sources/web_services.da
 import 'package:shop_app/features/login/data/repositories/login_reop_impl.dart';
 import 'package:shop_app/features/login/domain/repositories/login_repo.dart';
 import 'package:shop_app/features/login/domain/use_cases/login_use_case.dart';
-import 'package:shop_app/features/login/presentation/manager/login_cubit.dart';
+import 'package:shop_app/features/login/domain/use_cases/register_use_case.dart';
+import 'package:shop_app/features/login/presentation/manager/login_manager/login_cubit.dart';
+import 'package:shop_app/features/login/presentation/manager/register_manager/register_cubit.dart';
 
 final getIt = GetIt.instance;
 
 void setupGetIt() {
   getIt.registerLazySingleton<LoginCubit>(
       () => LoginCubit(loginUseCase: getIt()));
+  getIt.registerLazySingleton<Register>(
+      () => Register(loginRepository: getIt()));
   getIt.registerLazySingleton<LoginUseCase>(
       () => LoginUseCase(loginRepository: getIt()));
   getIt.registerLazySingleton<LoginRepository>(
@@ -59,4 +63,7 @@ void setupGetIt() {
       () => GetCategory(homeRepository: getIt()));
 
   getIt.registerLazySingleton<FavCubit>(() => FavCubit());
+
+  getIt.registerLazySingleton<RegisterCubit>(
+      () => RegisterCubit(register: getIt()));
 }

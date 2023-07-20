@@ -9,11 +9,13 @@ import 'package:shop_app/features/home/presentation/manager/nav_bar_manager/navi
 import 'package:shop_app/features/home/presentation/pages/main_home_page.dart';
 import 'package:shop_app/features/login/data/local/data_sources/cache_data.dart';
 import 'package:shop_app/features/login/data/remote/models/request_model/login_body_model.dart';
+import 'package:shop_app/features/login/data/remote/models/request_model/register_body_model.dart';
 import 'package:shop_app/features/login/domain/use_cases/login_use_case.dart';
-import 'package:shop_app/features/login/presentation/manager/login_states.dart';
+import 'package:shop_app/features/login/presentation/manager/login_manager/login_states.dart';
 
 class LoginCubit extends Cubit<LoginStates> {
-  LoginCubit({required this.loginUseCase}) : super(const LoginStates.initial());
+  LoginCubit({required this.loginUseCase,})
+      : super(const LoginStates.initial());
   LoginUseCase loginUseCase;
 
   void showPassword() {
@@ -24,25 +26,30 @@ class LoginCubit extends Cubit<LoginStates> {
     emit(const LoginStates.initial());
   }
 
-  void login(BuildContext context, String lang,
-      LoginBodyModel loginBodyModel) async {
+  void login(
+      BuildContext context, String lang, LoginBodyModel loginBodyModel) async {
     emit(const LoginStates.connecting());
     ApiResult<RespondModel> result = await loginUseCase(lang, loginBodyModel);
     result.when(success: (RespondModel respond) {
       if (respond.status!) {
-        getIt<CacheData>().setString(key: 'token', value: respond.data?.token??'');
+        getIt<CacheData>()
+            .setString(key: 'token', value: respond.data?.token ?? '');
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (_) =>
-                MultiBlocProvider(
-                  providers: [
-                    BlocProvider<HomeCubit>(create: (_)=>getIt<HomeCubit>(),),
-                    BlocProvider<NavigationBarCubit>(create: (_)=>getIt<NavigationBarCubit>(),),
-                  ],
-                  child: HomePage(
-                    token: respond.data?.token??'',
-                  ),),
+            builder: (_) => MultiBlocProvider(
+              providers: [
+                BlocProvider<HomeCubit>(
+                  create: (_) => getIt<HomeCubit>(),
+                ),
+                BlocProvider<NavigationBarCubit>(
+                  create: (_) => getIt<NavigationBarCubit>(),
+                ),
+              ],
+              child: HomePage(
+                token: respond.data?.token ?? '',
+              ),
+            ),
           ),
         );
       } else {
@@ -73,4 +80,6 @@ class LoginCubit extends Cubit<LoginStates> {
     }
     return null;
   }
+
+
 }

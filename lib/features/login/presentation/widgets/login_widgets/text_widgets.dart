@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_app/core/injection/injection.dart';
+import 'package:shop_app/features/login/presentation/manager/register_manager/register_cubit.dart';
+import 'package:shop_app/features/login/presentation/pages/register_screen.dart';
 
 Widget startText(BuildContext context) {
   return Column(
@@ -26,12 +30,24 @@ Widget putWidgetAtStart(Widget widget) {
   );
 }
 
-Widget endText() {
+Widget endText(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       const Text('Don\'t have an account'),
-      TextButton(onPressed: () {}, child: const Text('Register now?')),
+      TextButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => BlocProvider(
+                  create: (_) => getIt<RegisterCubit>(),
+                  child: const RegisterScreen(),
+                ),
+              ),
+            );
+          },
+          child: const Text('Register now?')),
     ],
   );
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-
 Widget defaultTextFiled({
   required TextEditingController textEditingController,
   required String labelText,
@@ -11,7 +10,6 @@ Widget defaultTextFiled({
   IconData? suffixIcon,
   Function? onPressed,
 }) {
-
   return TextFormField(
     keyboardType: TextInputType.name,
     obscureText: isPassword,
@@ -52,10 +50,9 @@ Widget addVerticalSpace(double height) {
   return SizedBox(
     height: height,
   );
-
 }
 
-defaultErrorToast({required String message}){
+defaultErrorToast({required String message}) {
   Fluttertoast.showToast(
       msg: message,
       toastLength: Toast.LENGTH_LONG,
@@ -63,6 +60,16 @@ defaultErrorToast({required String message}){
       timeInSecForIosWeb: 1,
       backgroundColor: Colors.red,
       textColor: Colors.white,
-      fontSize: 16.0
-  );
+      fontSize: 16.0);
+}
+
+defaultSuccessToast({required String message}) {
+  Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.TOP,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.green,
+      textColor: Colors.white,
+      fontSize: 16.0);
 }
