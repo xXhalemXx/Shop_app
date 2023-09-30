@@ -55,10 +55,10 @@ To run this app on your local development environment, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/flutter-shop-app.git
+   git clone https://github.com/xXhalemXx/Shop_app.git
 2. Navigate to the project directory:
    ```bash
-   cd flutter-shop-app  
+   cd flutter shop-app  
 3. Install the dependencies:
    ```bash
    flutter pub get
