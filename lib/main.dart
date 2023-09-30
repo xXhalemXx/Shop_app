@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           FlutterNativeSplash.remove();
           if (snapshot.data == 0) {
             return BlocProvider(
-              create: (context) => getIt<LoginCubit>(),
+              create: (context) => getIt<LoginCubit>()..setupAnimation(),
               child: OnBoardingScreen(),
             );
           } else if (snapshot.data == 1) {
@@ -68,6 +68,7 @@ class MyApp extends StatelessWidget {
   Future<int> witchRoutToGo() async {
     bool? firstOpen = await getIt<CacheData>().getBool(key: 'firstOpen');
     String? shardToken = await getIt<CacheData>().getString(key: 'token');
+     await getIt<LoginCubit>().setupAnimation();
     if (firstOpen == null || firstOpen == true) {
       return 0;
     } else if (shardToken == null || shardToken == '') {
@@ -76,5 +77,6 @@ class MyApp extends StatelessWidget {
       token = shardToken;
       return 2;
     }
+
   }
 }

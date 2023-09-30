@@ -94,7 +94,7 @@ void pushToLogin(BuildContext context) async{
     context,
     MaterialPageRoute(
       builder: (context) => BlocProvider<LoginCubit>(
-        create: (_) => getIt<LoginCubit>(),
+        create: (_) => getIt<LoginCubit>()..setupAnimation(),
         child: LoginPage(),
       ),
     ),

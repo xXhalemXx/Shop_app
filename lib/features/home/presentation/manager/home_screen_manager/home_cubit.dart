@@ -165,7 +165,7 @@ class HomeCubit extends Cubit<HomeState> {
            context,
            MaterialPageRoute(
                builder: (_) => BlocProvider<LoginCubit>(
-                 create: (_) => getIt<LoginCubit>(),
+                 create: (_) => getIt<LoginCubit>()..setupAnimation(),
                  child: LoginPage(),
                )));
      }else{
