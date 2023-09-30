@@ -58,7 +58,7 @@ To run this app on your local development environment, follow these steps:
    git clone https://github.com/xXhalemXx/Shop_app.git
 2. Navigate to the project directory:
    ```bash
-   cd flutter shop-app  
+   cd flutter shop_app  
 3. Install the dependencies:
    ```bash
    flutter pub get
@@ -110,7 +110,7 @@ Here are some screenshots of the Flutter Shop App:
 <p align="center">
 <img src="https://github.com/xXhalemXx/Shop_app/blob/master/projectImages/image6.jpg"  width="300" height="600"> <br />
 
-### Favuriout Page 
+### Favourite Page 
 <p align="center">
 <img src="https://github.com/xXhalemXx/Shop_app/blob/master/projectImages/image7.jpg"  width="300" height="600"> <br />
 
